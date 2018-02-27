@@ -52,3 +52,6 @@ console.log(elHeading.className);
 
 // доступ к стилям элемента
 elHeading.style.background = 'red';
+
+
+// новые комментарии
