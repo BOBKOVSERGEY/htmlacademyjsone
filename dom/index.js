@@ -39,5 +39,16 @@ console.log(elInput);
 var elHeading = document.querySelector('h3');
 
 // добавление классов
-elHeading.classList.add('myClassOne', 'myClassTwo');
+elHeading.classList.add('myClassOne', 'myClassTwo', 'myClassThree');
+
+// удаление классов
+//elHeading.classList.remove('myClassTwo');
+
+// переключение классов
+elHeading.classList.toggle('myClassTwo', true);
+
+console.log(elHeading.classList.contains('myClassTwo'));
 console.log(elHeading.className);
+
+// доступ к стилям элемента
+elHeading.style.background = 'red';
