@@ -10,15 +10,57 @@
     .newClass {
       background: red;
     }
+    .el {
+      width: 90px;
+      height: 90px;
+      flex: 0 0 auto;
+      background: #4a90e2;
+      border: 10px solid #2f4f90;
+      margin: 5px;
+      color: #fff;
+      font-size: 30px;
+      text-align: center;
+      font-weight: bold;
+      line-height: 90px;
+    }
+    .pool {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: #ccc;
+      padding: 20px;
+      margin: 10px;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
-<h1 id="idHeading" class="page__title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt doloribus eius error, fuga magni minus neque perferendis perspiciatis reiciendis repellendus reprehenderit, sed voluptatibus? Consequatur labore necessitatibus odit quaerat quas.</h1>
+<div class="stringtext">
+  <div >
+    Lorem ipsum dolor sit amet, <span class="login">consectetur</span> adipisicing elit. Aut ducimus eligendi eos est minus optio sed sint tempora temporibus totam. Adipisci assumenda illo modi molestiae nemo provident recusandae, saepe sequi.
+  </div>
+  <div >
+    Lorem ipsum dolor sit amet, <span class="login">consectetur</span> adipisicing elit. Aut ducimus eligendi eos est minus optio sed sint tempora temporibus totam. Adipisci assumenda illo modi molestiae nemo provident recusandae, saepe sequi.
+  </div>
+</div>
+<h1 id="idHeading" class="page__title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt doloribus eius error, fuga magni minus neque perferendis perspiciatis reiciendis repellendus reprehenderit, sed voluptatibus? Consequatur labore necessitatibus odit quaerat quas.</div></h1>
 
 <div>
   <input type="text">
 </div>
 <h3 id="heading">heading</h3>
+
+<div class="pool pool-1">
+  <div class="el el-1"><span>0</span></div>
+  <div class="el el-2"><span>1</span></div>
+  <div class="el el-3"><span>2</span></div>
+  <div class="el el-4"><span>3</span></div>
+  <div class="el el-5"><span>4</span></div>
+  <div class="el el-6"><span>5</span></div>
+</div>
+<div class="pool pool-2">
+
+</div>
 <script src="index.js"></script>
 </body>
 </html>
