@@ -11,9 +11,10 @@ cart.addEventListener('click', function (e) {
   e.preventDefault();
 })
 
-setupOpen.addEventListener('click', function () {
+setupOpen.addEventListener('click', function (e) {
   setup.classList.toggle('hidden'); // удаляем/добавляем класс
-}, false);
+  e.stopPropagation(); // останавливаем всплытие
+});
 close.addEventListener('click', function () {
   setup.classList.add('hidden'); // добавляем класс
 })
