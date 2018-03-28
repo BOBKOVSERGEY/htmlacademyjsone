@@ -14,5 +14,6 @@ close.addEventListener('click', function () {
 })
 
 document.addEventListener('click', function (e) {
-  console.log(e.target);
+  var elClass = e.target.className;
+  console.log(elClass);
 })
