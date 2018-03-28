@@ -8,7 +8,11 @@ var setupOpen = document.querySelector('.setup-open'),
 
 setupOpen.addEventListener('click', function () {
   setup.classList.toggle('hidden'); // удаляем/добавляем класс
-})
+}, false);
 close.addEventListener('click', function () {
   setup.classList.add('hidden'); // добавляем класс
+})
+
+document.addEventListener('click', function (e) {
+  console.log(e.target);
 })
