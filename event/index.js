@@ -5,30 +5,55 @@
 var setupOpen = document.querySelector('.setup-open'),
     setup = document.querySelector('.setup'),
     close = setup.querySelector('.close'), // ищем в setup
-    cart = document.querySelector('.cart');
+    cart = document.querySelector('.cart'),
+    ESC_KEYCOSE = 27,
+    ENTER_KEYCODE = 13;
 
 cart.addEventListener('click', function (e) {
   e.preventDefault();
 })
 
-setupOpen.addEventListener('click', function (e) {
-  setup.classList.toggle('hidden'); // удаляем/добавляем класс
-  //e.stopPropagation(); // останавливаем всплытие
+
+var onPopupEscPress = function (e) {
+  //если нажали esc
+  if (e.keyCode === ESC_KEYCOSE) {
+    setup.classList.add('hidden'); // удаляем/добавляем класс
+  }
+};
+
+var openPopup = function () {
+  setup.classList.remove('hidden');
 
   // события нажатия на клавиши
-  document.addEventListener('keydown', function (e) {
+  document.addEventListener('keydown', onPopupEscPress)
+};
 
-    //если нажали esc
-    if (e.keyCode === 27) {
-      setup.classList.add('hidden'); // удаляем/добавляем класс
-    }
+var closePopup = function () {
+  setup.classList.add('hidden');
 
-  })
+  document.removeEventListener('keydown', onPopupEscPress)
+};
 
+
+setupOpen.addEventListener('click', function (e) {
+  openPopup();
 });
-close.addEventListener('click', function () {
-  setup.classList.add('hidden'); // добавляем класс
+
+setupOpen.addEventListener('keydown', function (e) {
+  if (e.keyCode === ENTER_KEYCODE) {
+    openPopup();
+  }
 })
+
+close.addEventListener('click', function () {
+  closePopup();
+});
+close.addEventListener('keydown', function (e) {
+  closePopup();
+});
+
+
+
 
 document.addEventListener('click', function (e) {
   var elClass = e.target.className;
