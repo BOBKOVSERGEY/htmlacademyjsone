@@ -74,4 +74,71 @@ userNameInput.addEventListener('invalid', function (e) {
   }
 })
 
+// перетаскивание drag
+var elDrag = document.querySelector('.drag__item');
+var dialogHandler = document.querySelector('.drag__item-bars');
 
+// событие клика на лев клавишу
+dialogHandler.addEventListener('mousedown', function (evt) {
+  evt.preventDefault();
+
+  var startCoords = {
+    x: evt.clientX,
+    y: evt.clientY
+  };
+
+  var onMouseMove = function (moveEvent) {
+    moveEvent.preventDefault();
+
+    var shift = {
+      x: startCoords.x - moveEvent.clientX,
+      y: startCoords.y - moveEvent.clientY
+    };
+    startCoords = {
+      x: moveEvent.clientX,
+      y: moveEvent.clientY
+    };
+    elDrag.style.top = (elDrag.offsetTop - shift.y) + 'px';
+    elDrag.style.left = (elDrag.offsetLeft - shift.x) + 'px';
+  };
+
+  var onMouseUp = function (upEvt) {
+    upEvt.preventDefault();
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+  }
+
+  document.addEventListener('mousemove', onMouseMove); // перемещаем объект
+  document.addEventListener('mouseup', onMouseUp); // отпускаем мышь
+});
+
+// drag-and-drop
+var shopElement = document.querySelector('.drag__item');
+var draggedItem = null;
+
+shopElement.addEventListener('dragstart', function (e) {
+
+    draggedItem = e.target ;
+
+});
+
+var artifactsElement = document.querySelector('.drag-drop__item');
+
+artifactsElement.addEventListener('dragover', function (e) {
+  e.preventDefault();
+  return false;
+});
+
+artifactsElement.addEventListener('drop', function (e) {
+  e.target.style.background = '';
+  e.target.appendChild(draggedItem);
+  e.preventDefault();
+});
+artifactsElement.addEventListener('dropdragenter', function (e) {
+  e.target.style.background = 'yellow';
+  e.preventDefault();
+});
+artifactsElement.addEventListener('dragleave', function (e) {
+  e.target.style.background = '';
+  e.preventDefault();
+})

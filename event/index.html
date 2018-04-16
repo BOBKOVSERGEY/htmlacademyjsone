@@ -25,6 +25,7 @@
       text-align: center;
        padding: 5px;
 
+
     }
     .close {
       position: absolute;
@@ -34,6 +35,41 @@
     }
     .hidden {
       display: none;
+    }
+    .drag {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 0;
+    }
+    .drag__item {
+      flex:0 0 auto;
+      min-width: 200px;
+      height: 200px;
+      margin: 10px;
+      background: gray;
+      position: relative;
+    }
+    .drag-drop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 0;
+    }
+    .drag-drop__item {
+      flex:0 0 auto;
+      min-width: 200px;
+      height: 200px;
+      margin: 10px;
+      background: blue;
+      position: relative;
+    }
+    .drag__item-bars {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      color: white;
+      transform: translateX(-50%);
     }
   </style>
 </head>
@@ -49,6 +85,65 @@
   <input minlength="2" maxlength="25" class="form__input" type="text" placeholder="Ваше имя" required>
   <input type="submit" value="Отправить">
 </form>
+
+<section class="drag">
+  <div class="drag__item">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+</section>
+
+<p>----------------------</p>
+<section class="drag">
+  <div class="drag__item" draggable="true">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item" draggable="true">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item" draggable="true">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item" draggable="true">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="drag__item" draggable="true">
+    <div class="drag__item-bars"><i class="fas fa-bars"></i></div>
+  </div>
+</section>
+
+<section class="drag-drop" dropzone="move">
+  <div class="drag-drop__item">
+
+  </div>
+  <div class="drag-drop__item">
+
+  </div>
+  <div class="drag-drop__item">
+
+  </div>
+  <div class="drag-drop__item">
+
+  </div>
+  <div class="drag-drop__item">
+
+  </div>
+  <div class="drag-drop__item">
+
+  </div>
+</section>
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 <script src="index.js"></script>
 </body>
 </html>
